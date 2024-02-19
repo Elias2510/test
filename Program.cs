@@ -1,3 +1,5 @@
+//empty
+
 using test.Contextapp;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
