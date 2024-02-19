@@ -1,12 +1,5 @@
-//emptyyyyyyyyyyyyy
-
-using test.Contextapp;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-
-using System.Net.Http;
-using Microsoft.Extensions.DependencyInjection;
-
+using test.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -30,21 +23,19 @@ builder.Services.AddCors(options =>
         });
 });
 
-
 // Add services to the container.
-
-
 builder.Services.AddControllers();
 
-
+// Add DbContext
 builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("perm")));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddScoped<INewsRepository, NewsRepository>();
+
+// Add repositories
+builder.Services.AddScoped<IActorRepository, ActorRepository>();
+builder.Services.AddScoped<IFilmRepository, FilmRepository>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 
 var app = builder.Build();
 
@@ -60,7 +51,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseCors("corsapp");  // Make sure this is placed here, after UseRouting and before UseAuthorization
+app.UseCors("corsapp");
 
 app.UseAuthorization();
 

@@ -3988,11 +3988,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\User\\source\\test\\test.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\test\\test.csproj",
       "projectName": "test",
-      "projectPath": "c:\\Users\\User\\source\\test\\test.csproj",
+      "projectPath": "C:\\Users\\User\\Source\\Repos\\test\\test.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\User\\source\\test\\obj\\",
+      "outputPath": "C:\\Users\\User\\Source\\Repos\\test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4020,6 +4020,9 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "default"
       }
     },
     "frameworks": {
