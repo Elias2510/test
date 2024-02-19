@@ -1,0 +1,42 @@
+.poza {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.cinemacity.ro/static/dam/jcr:68359a28-ab59-4665-8499-207fed2b4a69');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Pentru a face conținutul mai vizibil pe fundalul imaginii */
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .section {
+    background-color: rgba(255, 255, 255, 0.8); /* Pentru a face secțiunile mai vizibile pe fundalul imaginii */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .section h2 {
+    color: #007bff;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  

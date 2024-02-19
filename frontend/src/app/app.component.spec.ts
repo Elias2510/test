@@ -1,29 +1,45 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { Component, OnInit } from '@angular/core';
+import { CinemaService } from './services/cinema.service';
+import { ActorService } from './services/actor.service';
+import { FilmService } from './services/film.service';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
-  });
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  cinemas: any[] = [];
+  actori: any[] = [];
+  filme: any[] = [];
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  constructor(
+    private cinemaService: CinemaService,
+    private actorService: ActorService,
+    private filmService: FilmService
+  ) {}
 
-  it(`should have the 'frontend' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend');
-  });
+  ngOnInit(): void {
+    this.loadCinemas();
+    this.loadActori();
+    this.loadFilme();
+  }
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
-  });
-});
+  loadCinemas() {
+    this.cinemaService.getCinemas().subscribe(data => {
+      this.cinemas = data;
+    });
+  }
+
+  loadActori() {
+    this.actorService.getActori().subscribe(data => {
+      this.actori = data;
+    });
+  }
+
+  loadFilme() {
+    this.filmService.getFilme ().subscribe(data => {
+      this.filme = data;
+    });
+  }
+}
